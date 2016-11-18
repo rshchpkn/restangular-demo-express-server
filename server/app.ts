@@ -10,7 +10,45 @@ import { publicRouter } from './routes/public';
 import { feedRouter } from './routes/feed';
 import {heroesRouter} from "./routes/heroes";
 
+
+let mongoose = require('mongoose');
+
+import {User} from "./models/users";
+
+// import * as mongodb from "mongodb";
+
 const app: express.Application = express();
+
+let mongodb = require('mongodb').MongoClient;
+let db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("connected");
+});
+
+mongoose.connect('mongodb://localhost:27017/test');
+
+
+
+// let user = new User({name: "user4"});
+// // user.save((err,user)=>{
+// //   console.log(user);
+// // });
+// User.find({name: "user4"}).remove();
+// User.find({name: "user4"},(err,res)=>{
+//   console.log(res);
+// });
+
+//
+// mongodb.connect('mongodb://localhost:27017/test',(err,db)=>{
+//   let users = db.collection('users');
+//
+//   users.find().toArray((err,usr)=>{
+//     console.log(usr)
+//     db.close();
+//   });
+// });
+
 
 app.disable('x-powered-by');
 
@@ -26,11 +64,11 @@ app.use(cors({
 // app.set('env', 'production');
 
 // api routes
-app.use('/api/secure', protectedRouter);
+// app.use('/api/secure', protectedRouter);
 app.use('/api/heroes', heroesRouter);
-app.use('/api/login', loginRouter);
-app.use('/api/public', publicRouter);
-app.use('/api/feed', feedRouter);
+// app.use('/api/login', loginRouter);
+// app.use('/api/public', publicRouter);
+// app.use('/api/feed', feedRouter);
 
 if (app.get('env') === 'production') {
 

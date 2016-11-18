@@ -6,7 +6,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "concurrently --kill-others \"ng serve --proxy-config proxy.conf.json\" \"npm run _server:run\"",
+    "start": "concurrently --kill-others  \"npm run _server:run\"",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
@@ -63,6 +63,7 @@
     "typescript": "~2.0.3"
   },
   "devDependencies": {
+    "codelyzer": "1.0.0-beta.1",
     "concurrently": "^3.1.0",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
@@ -71,8 +72,9 @@
     "karma-cli": "^1.0.1",
     "karma-jasmine": "^1.0.2",
     "karma-remap-istanbul": "^0.2.1",
+    "mongodb": "^2.2.11",
+    "mongoose": "^4.6.8",
     "nodemon": "^1.11.0",
-    "protractor": "4.0.9",
-    "codelyzer": "1.0.0-beta.1"
+    "protractor": "4.0.9"
   }
 }
