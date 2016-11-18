@@ -39,15 +39,7 @@ mongoose.connect('mongodb://localhost:27017/test');
 //   console.log(res);
 // });
 
-//
-// mongodb.connect('mongodb://localhost:27017/test',(err,db)=>{
-//   let users = db.collection('users');
-//
-//   users.find().toArray((err,usr)=>{
-//     console.log(usr)
-//     db.close();
-//   });
-// });
+
 
 
 app.disable('x-powered-by');
